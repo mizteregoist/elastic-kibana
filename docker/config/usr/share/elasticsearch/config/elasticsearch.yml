@@ -18,3 +18,10 @@ http.cors.allow-origin: '*'
 xpack.security.enabled: true
 xpack.security.audit.enabled: true
 xpack.license.self_generated.type: ${LICENSE}
+xpack:
+  security:
+    authc:
+      realms:
+        native:
+          native1:
+            order: 0

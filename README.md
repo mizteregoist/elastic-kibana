@@ -4,11 +4,15 @@ docker-compose up -d --build
 ```
 Reset password and set in ENV variables for elastic user
 ```
-docker-compose exec elastic bin/elasticsearch-reset-password -b -s -f -u elastic
+docker-compose exec elastic bin/elasticsearch-reset-password -b -s -u elastic
 ```
 Reset password and set in ENV variables for kibana_system user
 ```
-docker-compose exec elastic bin/elasticsearch-reset-password -b -s -f -u kibana_system
+docker-compose exec elastic bin/elasticsearch-reset-password -b -s -u kibana_system
+```
+Restart container
+```
+docker-compose up -d
 ```
 
 Required ENV variables:
