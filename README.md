@@ -11,7 +11,7 @@ Reset password and set in ENV variables for kibana_system user
 docker-compose exec elastic bin/elasticsearch-reset-password -b -s -f -u kibana_system
 ```
 
-Needed ENV variables:
+Required ENV variables:
 ```
 ELASTIC_USERNAME=elastic
 # Password for the 'elastic' user (at least 6 characters)
