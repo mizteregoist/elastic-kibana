@@ -1,0 +1,29 @@
+stages:
+  - build-prod
+  - deploy-prod
+
+before_script:
+  - docker info
+  - docker compose --version
+
+buildJobProd:
+  stage: build-prod
+  only:
+    - master
+  tags:
+    - shell
+  script:
+    - echo "Pull Images Prod"
+    - docker-compose -f docker-compose.yml pull
+
+deployJobProd:
+  needs: [ buildJobProd ]
+  stage: deploy-prod
+  only:
+    - master
+  tags:
+    - shell
+  script:
+    - echo "Deploy Prod"
+    - docker-compose -f docker-compose.yml up --force-recreate --detach
+

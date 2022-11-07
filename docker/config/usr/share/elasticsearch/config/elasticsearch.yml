@@ -1,0 +1,20 @@
+## Default Elasticsearch configuration from Elasticsearch base image.
+## https://github.com/elastic/elasticsearch/blob/main/distribution/docker/src/docker/config/elasticsearch.yml
+#
+node.name: elastic
+cluster.name: ${CLUSTER_NAME}
+network.host: 0.0.0.0
+
+discovery.type: single-node
+
+bootstrap.memory_lock: true
+
+http.cors.enabled: true
+http.cors.allow-origin: '*'
+
+## X-Pack settings
+## see https://www.elastic.co/guide/en/elasticsearch/reference/current/security-settings.html
+#
+xpack.security.enabled: true
+xpack.security.audit.enabled: true
+xpack.license.self_generated.type: ${LICENSE}
